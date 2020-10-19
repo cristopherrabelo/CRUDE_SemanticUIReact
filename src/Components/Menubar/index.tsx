@@ -11,7 +11,7 @@ const Menubar: React.FC = () => {
         <Dropdown.Menu>
           <Dropdown.Item><Link to='/'>Inicio</Link></Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item><Link to='/cliente'>Clientes</Link></Dropdown.Item>
+          <Dropdown.Item><Link to='/clientes'>Clientes</Link></Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item><Link to='/formulario'>Cadastro Cliente</Link></Dropdown.Item>
         </Dropdown.Menu>

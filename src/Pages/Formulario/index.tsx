@@ -20,11 +20,16 @@ interface IChangeInput {
 interface IParams {
   _id?: string
 } 
- 
+
+
+const endereco = {
+  complemento: ''  
+}
+
 const defaultValues = {
-  dataNascimento: '',
+  dataNascimento: '01-01-2001',
   telefone: '',
-  complemento: '', 
+  endereco
 }
 
 export default function Cadastro() {
@@ -66,10 +71,10 @@ export default function Cadastro() {
       method,
       data: values
     })
-      .then(() => alert('Sucesso ao realizar a operação'))
+      .then(() => alert('Sucesso'))
       .catch(e => {
         console.log(e)
-        alert('Ops! Houve um erro')
+        alert('Erro')
       })
       .finally(() => setLoading(false))
   }
@@ -96,6 +101,7 @@ export default function Cadastro() {
           placeholder='Data de Nascimento' 
           width={4}
           values={values.dataNascimento}
+          type="date"
           onChange={(_, { name, value }) => handleChange({ name, value })}
            /> 
           <Form.Input fluid label='CPF'
@@ -118,14 +124,14 @@ export default function Cadastro() {
           placeholder='Logradouro' 
           width={14} 
           required
-          values={values.logradouro}
+          values={values.endereco.logradouro}
           onChange={(_, { name, value }) => handleChange({ name, value })}
           />
           <Form.Input fluid label='Numero'
           placeholder='Numero' 
           width={2} 
           required
-          values={values.number}
+          values={values.endereco.number}
           type="number"
           onChange={(_, { name, value }) => handleChange({ name, value })}
           />
@@ -134,13 +140,13 @@ export default function Cadastro() {
         <Form.Group widths='equal'>
           <Form.Input fluid label='Complemento'
             placeholder='Complemento' 
-            values={values.complemento}
+            values={values.endereco.complemento}
             onChange={(_, { name, value }) => handleChange({ name, value })}            
             />
           <Form.Input fluid label='Bairro'
             placeholder='Bairro'
             required
-            values={values.bairro}
+            values={values.endereco.bairro}
             onChange={(_, { name, value }) => handleChange({ name, value })}
             />
         </Form.Group>
@@ -149,20 +155,20 @@ export default function Cadastro() {
             <Form.Input fluid label='CEP'
               placeholder='CEP'
               required
-              values={values.cep}
+              values={values.endereco.cep}
               type="number"
               onChange={(_, { name, value }) => handleChange({ name, value })}
             />
             <Form.Input fluid label='Cidade'
               placeholder='Cidade'
               required
-              values={values.cidade}
+              values={values.endereco.cidade}
               onChange={(_, { name, value }) => handleChange({ name, value })}
               />
             <Form.Input fluid label='Estado'
               placeholder='Estado' 
               required
-              values={values.estado}
+              values={values.endereco.estado}
               onChange={(_, { name, value }) => handleChange({ name, value })}
               />
           </Form.Group>
