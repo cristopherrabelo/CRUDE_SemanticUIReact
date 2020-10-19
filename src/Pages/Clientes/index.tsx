@@ -16,7 +16,7 @@ export default function Clientes() {
   
     function getClientes() {
       api
-        .get<APCliente[], AxiosResponse<APCliente[]>>('/clientes')
+        .get<APCliente[], AxiosResponse<APCliente[]>>('/cliente')
         .then(response => setClientes(response.data))
         .catch(e => {
           console.log(e)

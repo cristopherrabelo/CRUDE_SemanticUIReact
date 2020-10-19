@@ -46,7 +46,7 @@ export default function Cadastro() {
     setLoading(true)
 
     api
-      .get<APCliente, AxiosResponse<APCliente>>(`/clientes/${_id}`)
+      .get<APCliente, AxiosResponse<APCliente>>(`/cliente/${_id}`)
       .then(response => setValues(response.data))
       .catch(e => {
         console.log(e)
@@ -64,7 +64,7 @@ export default function Cadastro() {
     setLoading(true)
 
     const method = _id ? 'PUT' : 'POST'
-    const url = _id ? `/clients/${_id}` : '/clientes'
+    const url = _id ? `/cliente/${_id}` : '/cliente'
 
     api({
       url,
@@ -177,6 +177,7 @@ export default function Cadastro() {
             color='teal'
             content='Adicionar'
             icon='add'
+            type="submit"
             labelPosition='left'
           />
         </Form>
