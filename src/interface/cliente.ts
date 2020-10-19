@@ -4,13 +4,15 @@ export interface APCliente {
     cpf: string
     dataNascimento: string
     telefone: string
-    cep: number
-    logradouro: string
-    number: number
-    complemento : string
-    bairro: string
-    cidade: string
-    estado: string
+    endereco: {
+        cep: number
+        logradouro: string
+        number: number
+        complemento : string
+        bairro: string
+        cidade: string
+        estado: string
+    }
 } 
 
 export interface APClienteOptionals {
@@ -19,14 +21,15 @@ export interface APClienteOptionals {
     cpf?: string
     dataNascimento?: string
     telefone?: string
-    cep?: number
-    logradouro?: string
-    number?: number
-    complemento ?: string
-    bairro?: string
-    cidade?: string
-    estado?: string
-
+    endereco: {
+        cep?: number
+        logradouro?: string
+        number?: number
+        complemento?: string
+        bairro?: string
+        cidade?: string
+        estado?: string
+    }
 }
 
 export interface APDeleteCliente {
