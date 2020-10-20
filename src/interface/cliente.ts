@@ -4,10 +4,11 @@ export interface APCliente {
     cpf: string
     dataNascimento: string
     telefone: string
+    cadastroAtivo: boolean
     endereco: {
-        cep: number
+        cep: string
         logradouro: string
-        number: number
+        number: string
         complemento : string
         bairro: string
         cidade: string
@@ -21,10 +22,11 @@ export interface APClienteOptionals {
     cpf?: string
     dataNascimento?: string
     telefone?: string
+    cadastroAtivo?: boolean
     endereco: {
-        cep?: number
+        cep?: string
         logradouro?: string
-        number?: number
+        number?: string
         complemento?: string
         bairro?: string
         cidade?: string

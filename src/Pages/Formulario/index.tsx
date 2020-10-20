@@ -21,18 +21,17 @@ interface IParams {
   _id?: string
 } 
 
-
 const endereco = {
   complemento: ''  
 }
 
 const defaultValues = {
-  dataNascimento: '01-01-2001',
+  dataNascimento: '',
   telefone: '',
   endereco
 }
 
-export default function Cadastro() {
+export default function Formulario() {
   const { _id } = useParams<IParams>()
   const [values, setValues] = useState<APClienteOptionals>({
     ...defaultValues,
@@ -50,7 +49,7 @@ export default function Cadastro() {
       .then(response => setValues(response.data))
       .catch(e => {
         console.log(e)
-        alert('Error ao buscar dados do produto')
+        alert('Error ao dados')
       })
       .finally(() => setLoading(false))
   }, [_id])
@@ -101,7 +100,6 @@ export default function Cadastro() {
           placeholder='Data de Nascimento' 
           width={4}
           values={values.dataNascimento}
-          type="date"
           onChange={(_, { name, value }) => handleChange({ name, value })}
            /> 
           <Form.Input fluid label='CPF'
@@ -118,7 +116,14 @@ export default function Cadastro() {
             onChange={(_, { name, value }) => handleChange({ name, value })}
            />
         </Form.Group>
-          
+        <Form.Group inline>
+            <label>Cadastro Ativo:</label>
+            <Form.Radio
+              label="Sim"
+              checked={values.cadastroAtivo}
+              onChange={() => handleChange({ name: 'cadastroAtivo', value: true })}
+            />
+        </Form.Group>
         <Form.Group>
           <Form.Input fluid label='Logradouro' 
           placeholder='Logradouro' 
@@ -132,7 +137,6 @@ export default function Cadastro() {
           width={2} 
           required
           values={values.endereco.number}
-          type="number"
           onChange={(_, { name, value }) => handleChange({ name, value })}
           />
         </Form.Group>
@@ -156,7 +160,6 @@ export default function Cadastro() {
               placeholder='CEP'
               required
               values={values.endereco.cep}
-              type="number"
               onChange={(_, { name, value }) => handleChange({ name, value })}
             />
             <Form.Input fluid label='Cidade'
