@@ -57,7 +57,7 @@ export default function Cadastro() {
 
   function handleChange({ name, value }: IChangeInput) {
     setValues({ ...values, [name]: value })
-  } 
+  }
 
   function handleSubmit(evt: FormEvent) {
     evt.preventDefault()

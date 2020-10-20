@@ -78,5 +78,4 @@ export default function ListaClientes({ clientes, deleteCliente }: AProps) {
         </Lista>
 
   );
-
 }

@@ -12,7 +12,7 @@ function Routes() {
         <Route path="/" exact component={Home} />
         <Route path="/clientes" exact component={Clientes} />
         <Route path="/formulario" exact component={Formulario} />     
-        <Route path="/clientes/formulario/:_id" exact component={Formulario} />
+        <Route path="/clientes/formulario/_id" exact component={Formulario} />
       </Switch>
     </BrowserRouter>
   )
