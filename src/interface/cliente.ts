@@ -37,4 +37,3 @@ export interface APDeleteCliente {
     ok: number
     deletedCount: number
   }
-  

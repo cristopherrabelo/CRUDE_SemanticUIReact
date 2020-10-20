@@ -23,7 +23,7 @@ export default function Clientes() {
           alert(e.message)
         })
     }
- 
+  
     async function deleteCliente(_id: string): Promise<void> {
       api
         .delete<APDeleteCliente, AxiosResponse<APDeleteCliente>>(
@@ -38,7 +38,7 @@ export default function Clientes() {
         })
         .catch(e => {
           console.log(e)
-          alert('Item não foi excluído')
+          alert('Cliente não foi excluído')
         })
     }
     
