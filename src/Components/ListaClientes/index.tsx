@@ -13,12 +13,12 @@ interface AProps {
 export default function ListaClientes({ clientes, deleteCliente }: AProps) {
 
 
-  function handleDeleteClick(cliente: APCliente): void {
-    const msg = `Deseja excluir ${cliente.nome}?`
+  function handleDeleteClick(clientes: APCliente): void {
+    const msg = `Deseja excluir ${clientes.nome}?`
     const response = window.confirm(msg)
 
     if (response) {
-      deleteCliente(cliente._id)
+      deleteCliente(clientes._id)
     }
   }  
 

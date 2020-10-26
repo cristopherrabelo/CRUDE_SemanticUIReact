@@ -28,6 +28,7 @@ const endereco = {
 const defaultValues = {
   dataNascimento: '',
   telefone: '',
+  cadastroAtivo: true,
   endereco
 }
 
@@ -35,6 +36,7 @@ export default function Formulario() {
   const { _id } = useParams<IParams>()
   const [values, setValues] = useState<APClienteOptionals>({
     ...defaultValues,
+    endereco,
     _id
   })
   const [loading, setLoading] = useState<boolean>(false)
@@ -73,7 +75,7 @@ export default function Formulario() {
       .then(() => alert('Sucesso'))
       .catch(e => {
         console.log(e)
-        alert('Erro')
+        alert('Erro . . . . . . . .')
       })
       .finally(() => setLoading(false))
   }
@@ -94,7 +96,7 @@ export default function Formulario() {
             values={values.nome}
             onChange={(_, { name, value }) => handleChange({ name, value })}
           />            
-        </Form.Group>
+        </Form.Group> 
         <Form.Group>
           <Form.Input fluid label='Data de Nascimento' 
           placeholder='Data de Nascimento' 
@@ -181,6 +183,7 @@ export default function Formulario() {
             content='Adicionar'
             icon='add'
             type="submit"
+            loading={loading}
             labelPosition='left'
           />
         </Form>
