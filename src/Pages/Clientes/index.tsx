@@ -17,10 +17,10 @@ export default function Clientes() {
     function getClientes() {
       api
         .get<APCliente[], AxiosResponse<APCliente[]>>('/cliente')
-        .then(response => setClientes(response.data))
+        .then(response => setClientes(response.data)) 
         .catch(e => {
           console.log(e)
-          alert(e.message)
+          alert(e.message) 
         })
     }
  
@@ -57,7 +57,7 @@ export default function Clientes() {
           <Link to='/formulario'>
             <Button
               color='teal'
-              as={Link}
+              as={Link} 
               to="/formulario"
               content='Adicionar'
               icon='add user'

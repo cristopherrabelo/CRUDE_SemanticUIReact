@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom'
 import api from '../../api';
 
 import { APCliente, APClienteOptionals } from '../../interface/cliente';
-import { AxiosResponse } from 'axios'
+import { AxiosResponse } from 'axios';
 
 interface IChangeInput {
   name: string
@@ -21,22 +21,19 @@ interface IParams {
   _id?: string
 } 
 
-const endereco = {
-  complemento: ''  
-}
-
 const defaultValues = {
   dataNascimento: '',
   telefone: '',
   cadastroAtivo: true,
-  endereco
+  endereco: {
+    complemento: '',
+  }
 }
 
 export default function Formulario() {
   const { _id } = useParams<IParams>()
   const [values, setValues] = useState<APClienteOptionals>({
     ...defaultValues,
-    endereco,
     _id
   })
   const [loading, setLoading] = useState<boolean>(false)
@@ -51,7 +48,7 @@ export default function Formulario() {
       .then(response => setValues(response.data))
       .catch(e => {
         console.log(e)
-        alert('Error ao dados')
+        alert('Error')
       })
       .finally(() => setLoading(false))
   }, [_id])
@@ -75,7 +72,7 @@ export default function Formulario() {
       .then(() => alert('Sucesso'))
       .catch(e => {
         console.log(e)
-        alert('Erro . . . . . . . .')
+        alert('Da esse erro toda hora')
       })
       .finally(() => setLoading(false))
   }
