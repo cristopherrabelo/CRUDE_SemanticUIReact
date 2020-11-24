@@ -10,9 +10,9 @@ function Routes() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/cliente" exact component={Clientes} />
+        <Route path="/clientes" exact component={Clientes} />
         <Route path="/formulario" exact component={Formulario} />     
-        <Route path="/cliente/formulario/_id" exact component={Formulario} />
+        <Route path="/clientes/formulario/_id" exact component={Formulario} />
       </Switch>
     </BrowserRouter>
   )
