@@ -1146,6 +1146,11 @@
     "@babel/runtime" "^7.10.4"
     react-is "^16.6.3"
 
+"@fnando/cpf@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@fnando/cpf/-/cpf-1.0.2.tgz#e78c46c5ee599b17f5d81b46c336b0e6eec8ace4"
+  integrity sha512-lfSfdONVQ/1aKvsA7PnawQjSoE5PXOyHich3WFIbAuYRMAw6Ax1FmIWxPxCfHP/Rh0R2cG/CxaimUW7NI6rgEQ==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -2953,9 +2958,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001020, caniuse-lite@^1.0.30001035:
-  version "1.0.30001035"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001035.tgz#2bb53b8aa4716b2ed08e088d4dc816a5fe089a1e"
-  integrity sha512-C1ZxgkuA4/bUEdMbU5WrGY4+UhMFFiXrgNAfxiMIqWgFTWfv/xsZCS2xEHT2LMq7xAZfuAnu6mcqyDl0ZR6wLQ==
+  version "1.0.30001161"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001161.tgz"
+  integrity sha512-JharrCDxOqPLBULF9/SPa6yMcBRTjZARJ6sc3cuKrPfyIk64JN6kuMINWqA99Xc8uElMFcROliwtz0n9pYej+g==
 
 capture-exit@^2.0.0:
   version "2.0.0"

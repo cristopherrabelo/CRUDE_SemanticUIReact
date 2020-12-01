@@ -1,7 +1,12 @@
 import axios from 'axios';
 
+const baseURL = process.env.REACT_APP_BASE_URL // URL da API
+const token = process.env.REACT_APP_TOKEN // Token de autorização para comunicar com a API
+
 export default axios.create({
-  baseURL: 'https://test.api.scontti.com/cris/v1',
-  timeout: 1000,
-  headers: {'X-API-Key': 'z5o9Ne3tT0sF8@rA5P8&Ry4EuG9GT9'},
+  baseURL,
+  timeout: 5000,
+  headers: {
+    'X-API-Key': token
+  }
 })

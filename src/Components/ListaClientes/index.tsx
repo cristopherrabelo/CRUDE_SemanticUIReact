@@ -12,7 +12,7 @@ interface AProps {
 
 export default function ListaClientes({ clientes, deleteCliente }: AProps) {
 
-
+  const CPF = require('cpf');
   function handleDeleteClick(cliente: APCliente): void {
     const msg = `Deseja excluir ${cliente.nome}?`
     const response = window.confirm(msg)
