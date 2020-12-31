@@ -1,5 +1,6 @@
 import React, { FormEvent, useState, useEffect } from 'react';
 import MenuBar from '../../Components/Menubar';
+
 import { Formu, Container} from './styles';
 import { Form, Button, Divider, Icon} from 'semantic-ui-react';
 
@@ -25,7 +26,7 @@ const defaultValues = {
   telefone: '',
   cadastroAtivo: true,
   endereco: {
-      complemento: '',
+    complemento: '',
   }
 }
 
@@ -70,8 +71,8 @@ export default function Formulario() {
     })
       .then(() => alert('Sucesso'))
       .catch(e => {
-        console.log(e)
-        alert('Da esse erro ao cadastrar')
+        console.log(e.response)
+        alert('Erro ao cadastrar os dados')
         console.log(values)
       })
       .finally(() => setLoading(false))
@@ -84,6 +85,7 @@ export default function Formulario() {
       <div><Link to='/'><Icon name='arrow alternate circle left' size='big' color='blue' /></Link></div>
       <Divider horizontal><h4>Cadastro de Clientes</h4></Divider> 
       <Form onSubmit={handleSubmit}>
+        <h2>Dados Pessoais</h2>
         <Form.Group>
           <Form.Input 
             name='nome'
@@ -122,15 +124,21 @@ export default function Formulario() {
               checked={values.cadastroAtivo}
               onChange={() => handleChange({ name: 'cadastroAtivo', value: true })}
             />
+            <Form.Radio
+              name='cadastroAtivo'
+              label="Não"
+              checked={values.cadastroAtivo}
+              onChange={() => handleChange({ name: 'cadastroAtivo', value: false })}
+            />
         </Form.Group>
+        <h2>Endereço</h2>
         <Form.Group>
           <Form.Input 
-          name='logradouro'
+          name='Logradouro'
           fluid label='Logradouro' 
           placeholder='Logradouro' 
           width={14} 
-          required
-          value={values.endereco.logradouro}
+          required value={values.endereco.logradouro}
           onChange={(_, { name, value }) => handleChange({ name, value })}
           />
           <Form.Input
@@ -144,18 +152,21 @@ export default function Formulario() {
           />
         </Form.Group>
 
-        <Form.Group widths='equal'>
-          <Form.Input
+        <Form.Group>
+         <Form.Input 
             name='complemento'
             fluid label='Complemento'
-            placeholder='Complemento' 
+            placeholder='Complemento'
+            width={8}
             value={values.endereco.complemento}
-            onChange={(_, { name, value }) => handleChange({ name, value })}            
+            onChange={(_, { name, value }) => handleChange({ name, value })}
             />
+
           <Form.Input 
             name='bairro'
             fluid label='Bairro'
             placeholder='Bairro'
+            width={8}
             required
             value={values.endereco.bairro}
             onChange={(_, { name, value }) => handleChange({ name, value })}
