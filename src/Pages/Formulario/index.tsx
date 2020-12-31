@@ -17,16 +17,15 @@ interface IChangeInput {
   value: string | number | boolean
 }
 
-interface IParams {
+interface IParams { 
   _id?: string
 } 
 
 const defaultValues = {
-  dataNascimento: '',
   telefone: '',
   cadastroAtivo: true,
   endereco: {
-    complemento: '',
+      complemento: '',
   }
 }
 
@@ -72,7 +71,8 @@ export default function Formulario() {
       .then(() => alert('Sucesso'))
       .catch(e => {
         console.log(e)
-        alert('Da esse erro toda hora')
+        alert('Da esse erro ao cadastrar')
+        console.log(values)
       })
       .finally(() => setLoading(false))
   }
@@ -86,98 +86,115 @@ export default function Formulario() {
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Input 
+            name='nome'
             fluid label='Nome' 
             placeholder='Nome'
             width={16} 
             required
-            values={values.nome}
+            value={values.nome}
             onChange={(_, { name, value }) => handleChange({ name, value })}
           />            
         </Form.Group> 
         <Form.Group>
-          <Form.Input fluid label='Data de Nascimento' 
-          placeholder='Data de Nascimento' 
-          width={4}
-          values={values.dataNascimento}
-          onChange={(_, { name, value }) => handleChange({ name, value })}
-           /> 
-          <Form.Input fluid label='CPF'
+          <Form.Input 
+            name='cpf'
+            fluid label='CPF'
             placeholder='CPF' 
-            values={values.cpf}
-            width={6}
+            value={values.cpf}
+            width={8}
             required             
             onChange={(_, { name, value }) => handleChange({ name, value })}
             />            
-          <Form.Input fluid label='Telefone'
+          <Form.Input
+            name='telefone'
+            fluid label='Telefone'
             placeholder='Telefone'
-            width={6}
-            values={values.telefone}
+            width={8}
+            value={values.telefone}
             onChange={(_, { name, value }) => handleChange({ name, value })}
            />
         </Form.Group>
         <Form.Group inline>
             <label>Cadastro Ativo:</label>
             <Form.Radio
+              name='cadastroAtivo'
               label="Sim"
               checked={values.cadastroAtivo}
               onChange={() => handleChange({ name: 'cadastroAtivo', value: true })}
             />
         </Form.Group>
         <Form.Group>
-          <Form.Input fluid label='Logradouro' 
+          <Form.Input 
+          name='logradouro'
+          fluid label='Logradouro' 
           placeholder='Logradouro' 
           width={14} 
           required
-          values={values.endereco.logradouro}
+          value={values.endereco.logradouro}
           onChange={(_, { name, value }) => handleChange({ name, value })}
           />
-          <Form.Input fluid label='Numero'
+          <Form.Input
+          name='numero'
+          fluid label='Numero'
           placeholder='Numero' 
           width={2} 
           required
-          values={values.endereco.number}
+          value={values.endereco.numero}
           onChange={(_, { name, value }) => handleChange({ name, value })}
           />
         </Form.Group>
 
         <Form.Group widths='equal'>
-          <Form.Input fluid label='Complemento'
+          <Form.Input
+            name='complemento'
+            fluid label='Complemento'
             placeholder='Complemento' 
-            values={values.endereco.complemento}
+            value={values.endereco.complemento}
             onChange={(_, { name, value }) => handleChange({ name, value })}            
             />
-          <Form.Input fluid label='Bairro'
+          <Form.Input 
+            name='bairro'
+            fluid label='Bairro'
             placeholder='Bairro'
             required
-            values={values.endereco.bairro}
+            value={values.endereco.bairro}
             onChange={(_, { name, value }) => handleChange({ name, value })}
             />
         </Form.Group>
 
           <Form.Group widths='equal'>
-            <Form.Input fluid label='CEP'
+            <Form.Input 
+              name='cep'
+              fluid label='CEP'
               placeholder='CEP'
               required
-              values={values.endereco.cep}
+              value={values.endereco.cep}
               onChange={(_, { name, value }) => handleChange({ name, value })}
             />
-            <Form.Input fluid label='Cidade'
+            
+            <Form.Input
+              name='cidade'
+              fluid label='Cidade'
               placeholder='Cidade'
               required
-              values={values.endereco.cidade}
+              value={values.endereco.cidade}
               onChange={(_, { name, value }) => handleChange({ name, value })}
               />
-            <Form.Input fluid label='Estado'
+
+            <Form.Input 
+              name='estado'
+            fluid label='Estado'
               placeholder='Estado' 
               required
-              values={values.endereco.estado}
+              value={values.endereco.estado}
               onChange={(_, { name, value }) => handleChange({ name, value })}
               />
+
           </Form.Group>
 
           <Button
             color='teal'
-            content='Adicionar'
+            content='Enviar'
             icon='add'
             type="submit"
             loading={loading}
